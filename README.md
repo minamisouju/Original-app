@@ -1,28 +1,24 @@
-# quickstart
-You can easily create Rails templates using docker-compose.
-It uses PostGresql for the database and webpacker on the front end, so modern development using ES 6 is possible.
+# README
 
-## Install Docker
-Please install Docker on your PC first.
-Refer to [here](https://docs.docker.com/install/) for the installation procedure.
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-If you are a Linux user you need to install docker-compose with [this operations](https://docs.docker.com/compose/install/#install-compose).
+Things you may want to cover:
 
-## Clone this repository
-Then clone the repository and move to project folder.
+* Ruby version
 
-```
-git clone git@github.com:belion-freee/quickstart.git
-cd quickstart
-```
+* System dependencies
 
-## Execute Setup
-Only you need to execute setup shell.
+* Configuration
 
-```
-./qs setup
-```
+* Database creation
 
-## Hello World!!
-Finally, please access `http://localhost:3000` as Rails is running.
-Enjoy your Rails!
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
