@@ -1,73 +1,85 @@
 class Content < ApplicationRecord
     validates :original_text, presence:true
     validates :converted_text, presence:true
-    before_save :convert_as_genshi
+    before_save :convert_into_genshi
+    after_save :tweet_genshi
 
     #private
-        def convert_as_genshi
-            # アクセストークンの取得（postリクエストを投げる）
-            # 構文解析APIにpostリクエストを送信
-            # レスポンスを取得
-            # 文字列を操作していい感じにする
-            access_token = get_cotoha_access_token
-            #original = "腹が減っては戦はできぬ"
-            parsed_text = exec_cotoha_parse(access_token)
+        def convert_into_genshi
+            cotoha_init
+            parsed_text = exec_cotoha_parse
             puts parsed_text
+            tweet_genshi
+        end
 
+        def tweet_genshi
+            twitter_init
+            @twitter.update("test")
+            #render plain: "Twitter.update"
         end
 
     private
+        def cotoha_init
+            @client_id = ENV["CLIENT_ID"]
+            @client_secret = ENV["CLIENT_SECRET"]
+            @publish_url = ENV["ACCESS_TOKEN_PUBLISH_URL"]
+            @base_url = ENV["API_BASE_URL"]
+            @access_token = get_cotoha_access_token
+        end
+
+        def get_api_response(url, head, body)
+            uri = URI.parse(url)
+            http = Net::HTTP.new(uri.host, uri.port)
+            http.use_ssl = true
+            http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+            req = Net::HTTP::Post.new(uri.request_uri)
+            head.each do |key, val|
+                req[key] = val
+            end
+            req.body = body.to_json
+            http.request(req)
+        end
 
         def get_cotoha_access_token
-            #header = "Content-Type:application/json;charset=UTF-8"
-            publish_url = ENV["ACCESS_TOKEN_PUBLISH_URL"]
-            data = {
-                "grantType": "client_credentials",
-                "clientId": ENV["CLIENT_ID"],
-                "clientSecret": ENV["CLIENT_SECRET"]
-            }.to_json
-
-            uri = URI.parse(publish_url)
-            http = Net::HTTP.new(uri.host, uri.port)
-            http.use_ssl = true
-            http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-
-            req = Net::HTTP::Post.new(uri.request_uri)
-            req["Content-Type"] = "application/json"
-            req.body = data
-            res = http.request(req)
-            res_body_json = JSON.parse(res.body)
-            res_body_json["access_token"]
+            head = {"Content-Type" => "application/json"}
+            body = {
+                grantType: "client_credentials",
+                clientId: @client_id,
+                clientSecret: @client_secret
+            }
+            response = get_api_response(@publish_url, head, body)
+            res_body = JSON.parse(response.body)
+            res_body["access_token"]
         end
 
-        def exec_cotoha_parse(access_token)
-            base_url = "#{ENV["API_BASE_URL"]}v1/parse"
-            data = {
-                "sentence": "腹が減っては戦はできぬ"
-            }.to_json
-
-            uri = URI.parse(base_url)
-            http = Net::HTTP.new(uri.host, uri.port)
-            http.use_ssl = true
-            http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-
-            req = Net::HTTP::Post.new(uri.request_uri,
+        def exec_cotoha_parse
+            url = "#{@base_url}v1/parse"
+            head = {
                 "Content-Type" => "application/json;charset=UTF-8",
-                "Authorization" => "Bearer #{access_token}")
-            req.body = data
-            res = http.request(req)
-            res_body = JSON.parse(res.body)
-            into_genshi(res_body)
+                "Authorization" => "Bearer #{@access_token}"
+            }
+            body = {sentence: "犬も歩けば棒に当たる"}
+            response = get_api_response(url, head, body)
+            res_body = JSON.parse(response.body)
+            into_genshi(res_body['result'])
         end
 
-        def into_genshi(json_output)
-            result = json_output['result']
-            converted_list = []
-            result.each do |chank|
+        def into_genshi(parse_result)
+            genshi_words = []
+            parse_result.each do |chank|
                 chank['tokens'].each do |token|
-                    converted_list << token['kana'] unless token['pos'].include?('助詞')
+                    genshi_words << token['kana'] unless token['pos'].include?('助詞')
                 end
             end
-            converted_list.join(' ')
+            genshi_words.join(' ')
+        end
+
+        def twitter_init
+            @twitter = Twitter::REST::Client.new do |config|
+                config.consumer_key        = ENV["CONSUMER_KEY"]
+                config.consumer_secret     = ENV["CONSUMER_SECRET"]
+                config.access_token        = ENV["ACCESS_TOKEN"]
+                config.access_token_secret = ENV["ACCESS_SECRET"]
+            end
         end
 end
