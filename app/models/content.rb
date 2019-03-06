@@ -1,27 +1,26 @@
 class Content < ApplicationRecord
     validates :original_text, presence:true, length:{maximum: 140}
     validates :converted_text, presence:true, length:{maximum: 140}
-    before_save :generate_genshi
+    before_save :convert_into_genshi
     #after_save :tweet_genshi
 
-    #private
-
-        def generate_genshi
+    private
+        def convert_into_genshi
             cotoha_init
             parsed_text = exec_cotoha_parse(self.original_text)
-            #puts parsed_text
             self.converted_text = parsed_text
-            #tweet_genshi
         end
 
+        # この処理は別のクラスに移植する
         def tweet_genshi
+            # content_controllerでparams[:id]わたしてfindする
             genshi = self.last.converted_text
             twitter_init
             @twitter.update!(genshi)
             #render plain: "Twitter.update"
         end
 
-    private
+    #private
         def cotoha_init
             @client_id = ENV["CLIENT_ID"]
             @client_secret = ENV["CLIENT_SECRET"]
