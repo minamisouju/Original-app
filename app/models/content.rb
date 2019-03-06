@@ -1,20 +1,23 @@
 class Content < ApplicationRecord
-    validates :original_text, presence:true
-    validates :converted_text, presence:true
-    before_save :convert_into_genshi
-    after_save :tweet_genshi
+    validates :original_text, presence:true, length:{maximum: 140}
+    validates :converted_text, presence:true, length:{maximum: 140}
+    before_save :generate_genshi
+    #after_save :tweet_genshi
 
     #private
-        def convert_into_genshi
+
+        def generate_genshi
             cotoha_init
-            parsed_text = exec_cotoha_parse
-            puts parsed_text
-            tweet_genshi
+            parsed_text = exec_cotoha_parse(self.original_text)
+            #puts parsed_text
+            self.converted_text = parsed_text
+            #tweet_genshi
         end
 
         def tweet_genshi
+            genshi = self.last.converted_text
             twitter_init
-            @twitter.update("test")
+            @twitter.update!(genshi)
             #render plain: "Twitter.update"
         end
 
@@ -52,13 +55,13 @@ class Content < ApplicationRecord
             res_body["access_token"]
         end
 
-        def exec_cotoha_parse
+        def exec_cotoha_parse(utsusemi)
             url = "#{@base_url}v1/parse"
             head = {
                 "Content-Type" => "application/json;charset=UTF-8",
                 "Authorization" => "Bearer #{@access_token}"
             }
-            body = {sentence: "犬も歩けば棒に当たる"}
+            body = {sentence: utsusemi}
             response = get_api_response(url, head, body)
             res_body = JSON.parse(response.body)
             into_genshi(res_body['result'])
