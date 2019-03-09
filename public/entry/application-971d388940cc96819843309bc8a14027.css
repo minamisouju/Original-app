@@ -1,0 +1,44 @@
+/* 
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com 
+Twitter: @rich_clark
+*/
+/* 
+status: optimized
+last updated: 2018-11-20
+*/
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box; }
+html, body, div, span, iframe,
+h1, h2, h3, p, blockquote, img, small, ul, li,
+form, label, footer, header, section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+body {
+  line-height: 1; }
+footer, header, section {
+  display: block; }
+ul {
+  list-style: none; }
+blockquote, q {
+  quotes: none; }
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+input, select {
+  vertical-align: middle; }
+.main {
+  background-color: bisque; }
+
+/*# sourceMappingURL=application-971d388940cc96819843309bc8a14027.css.map*/
