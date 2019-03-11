@@ -38,5 +38,27 @@ a {
   background: transparent; }
 input, select {
   vertical-align: middle; }
+body {
+  background-color: bisque;
+  height: 100vh;
+  position: relative;
+  width: 100vw; }
+.main {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translateX(-50%) translateY(-50%); }
+.btn {
+  border-radius: 2em;
+  color: #fff;
+  height: 3em;
+  line-height: 3em; }
+.btn-blue {
+  background-color: aqua; }
+.field {
+  background-color: #fff;
+  height: 20em;
+  width: 20em; }
 
-/*# sourceMappingURL=application-2d4f315dc0525a3d8b8f71e60e75e850.css.map*/
+/*# sourceMappingURL=application-3ac9f547a2a341f5c424b93febe2b861.css.map*/

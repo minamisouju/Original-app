@@ -1,1 +1,8 @@
-<h1>トモダチ</h1>
+<div class="main">
+    <h1>トモダチ</h1>
+    <div class="content-list">
+        <% @contents.each do |content| %>
+        <p><%= "#{content.original_text} |  #{content.converted_text}" %></p>
+        <% end %>
+    </div>
+</div>

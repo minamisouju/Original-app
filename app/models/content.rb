@@ -1,7 +1,7 @@
 class Content < ApplicationRecord
     validates :original_text, presence:true, length:{maximum: 140}
-    validates :converted_text, presence:true, length:{maximum: 140}
-    before_save :set_genshi
+    validates :converted_text, presence:true, length:{maximum: 140}, allow_nil: true
+    before_validation :set_genshi
     after_save :post_twitter
 
     private
