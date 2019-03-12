@@ -10,6 +10,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="main">
+      <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message) %>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>

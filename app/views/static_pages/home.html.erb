@@ -1,10 +1,8 @@
-<div class="main">
-    <h1>ゲンシジン　ボット</h1>
-    <ul>
-        <li><%=link_to "オマエ　ゲンシジン　ナル", new_path %></li>
-        <li><%=link_to "オマエ　トモダチ　ミル", index_path %></li>
-        <%= form_for @content, url: tweet_path do |f| %>
-            <%= f.submit "オマエ　ツイート　スル", class: "btn btn-blue" %>
-        <% end %>
-    </ul>
-</div>
+<h1>ゲンシジン　ボット</h1>
+<ul>
+    <li><%=link_to "オマエ　ゲンシジン　ナル", new_path %></li>
+    <li><%=link_to "オマエ　トモダチ　ミル", index_path %></li>
+    <%= form_for @content, url: tweet_path do |f| %>
+        <%= f.submit "オマエ　ツイート　スル", class: "btn btn-blue" %>
+    <% end %>
+</ul>

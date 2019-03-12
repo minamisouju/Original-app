@@ -1,9 +1,6 @@
-<div class="main">
-    <%= form_for(@content) do |f| %>
-        <%#= render 'shared/error_messages', object: f.object %>
-        <div class="field">
-            <%= f.text_area :original_text, placeholder: "オマエ　ココ　カク" %>
-        </div>
-        <%= f.submit "クリック　ゲンシジン　ナル", class: "btn btn-blue" %>
-    <% end %>
-</div>
+<%= form_for(@content) do |f| %>
+    <div class="field">
+        <%= f.text_area :original_text, placeholder: "オマエ　ココ　カク" %>
+    </div>
+    <%= f.submit "クリック　ゲンシジン　ナル", class: "btn btn-blue" %>
+<% end %>

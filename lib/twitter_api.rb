@@ -12,8 +12,8 @@ class TwitterApi
         genshi = Content.find(content_id)[:converted_text]
         begin
             @twitter.update!(genshi)
-        rescue Twitter::Error::Forbidden => duplicate_error
-            log.error duplicate_error.message
+        rescue => e
+            log.error e.message
         end
     end
 end

@@ -3,10 +3,10 @@ class ContentsController < ApplicationController
     def create
         @content = Content.new(content_params)
         if @content.save
-            #flash[:success] = "オマエ トモダチ"
+            flash[:success] = "オマエ トモダチ"
             redirect_to success_path
         else
-            #flash[:danger] = "ゲンシジン　シッパイ"
+            flash[:danger] = "ゲンシジン　シッパイ"
             redirect_to new_path
         end
     end
