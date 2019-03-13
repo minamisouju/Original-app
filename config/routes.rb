@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'contents#home'
+  get '/success', to:'contents#success', as:'success'
+  match '/tweet', to:'contents#tweet', via: [:post], as: 'tweet'
+  resources :contents, except:[:show, :edit, :update]
 end

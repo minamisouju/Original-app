@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700&subset=japanese');
+body{
+    background-color: bisque;
+    font-family: 'Noto Sans JP', 'ヒラギノ角ゴシック', 'メイリオ' ,sans-serif;
+    height:100vh;
+    position: relative;
+    width:100vw;
+}
+.main{
+    left:50%;
+    position: absolute;
+    top:50%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform : translate(-50%,-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+.btn{
+    border-radius: 2em;
+    color:#fff;
+    cursor: pointer;
+}
+.btn-blue{
+    background-color:#ccc;
+}

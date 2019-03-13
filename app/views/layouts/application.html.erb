@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App</title>
+    <title>Genshijin Bot</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_pack_tag 'application' %>
+    <%= javascript_pack_tag 'application' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="main">
+      <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message) %>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
