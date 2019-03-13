@@ -12,8 +12,8 @@ class TwitterApi
         genshi = Content.find(content_id)[:converted_text]
         begin
             @twitter.update!(genshi)
-        rescue => e
-            log.error e.message
+        rescue Twitter::Error => e
+            Rails.logger.error e.message
         end
     end
 end

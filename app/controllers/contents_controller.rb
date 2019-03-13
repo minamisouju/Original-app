@@ -7,7 +7,7 @@ class ContentsController < ApplicationController
             redirect_to success_path
         else
             flash[:danger] = "ゲンシジン　シッパイ"
-            redirect_to new_path
+            redirect_to new_content_path
         end
     end
 
@@ -20,7 +20,22 @@ class ContentsController < ApplicationController
         redirect_to success_path
     end
 
+    def new
+      @content = Content.new
+    end
+    
+    def index
+      @contents = Content.all
+    end
+
     def destroy
+    end
+
+    def home
+      @content = Content.new
+    end
+
+    def success
     end
 
     private
