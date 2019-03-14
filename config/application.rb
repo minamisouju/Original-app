@@ -40,6 +40,6 @@ module App
         request_specs: false
     end
 
-    config.autoload_paths << Rails.root.join("lib")
+    config.eager_load_paths << Rails.root.join("lib")
   end
 end
