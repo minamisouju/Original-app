@@ -7,4 +7,4 @@ import 'stylesheets/application';
 import 'javascripts/application';
 
 // import images
-//require.context('img', true, /\.(png|jpg|jpeg|svg|ico)$/)
+require.context('img', true, /\.(png|jpg|jpeg|svg|ico)$/)

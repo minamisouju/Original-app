@@ -1,6 +1,4 @@
 <%= form_for(@content) do |f| %>
-    <div class="field">
-        <%= f.text_area :original_text, placeholder: "オマエ　ココ　カク" %>
-    </div>
-    <%= f.submit "クリック　ゲンシジン　ナル", class: "btn btn-blue" %>
+    <%= f.text_area :original_text, placeholder: "オマエ　ココ　カク", class:"shadow" %>
+    <%= f.submit "クリック　ゲンシジン　ナル", class: "btn btn-pink shadow" %>
 <% end %>

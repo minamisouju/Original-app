@@ -1,24 +1,109 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700&subset=japanese');
+$pink:#ef6d6e;
+$sakura:#FFB2AE;
+$ume:#fcecea;
+$white:#fff;
+$grey:#928484;
+
 body{
-    background-color: bisque;
+    background-color: $ume;
+    color:#fff;
     font-family: 'Noto Sans JP', 'ヒラギノ角ゴシック', 'メイリオ' ,sans-serif;
+    font-size: 1em;
     height:100vh;
-    position: relative;
     width:100vw;
 }
 .main{
-    left:50%;
-    position: absolute;
-    top:50%;
-    -ms-transform: translate(-50%,-50%);
-    -webkit-transform : translate(-50%,-50%);
-    transform: translateX(-50%) translateY(-50%);
+    height:100%;
+    margin:0 30%;
+    text-align: center;
+    width:40%;
 }
+.container{
+    padding:10% 0;
+}
+
 .btn{
     border-radius: 2em;
-    color:#fff;
     cursor: pointer;
+    display: inline-block;
+    font-size:1em;
+    font-weight: bold;
+    line-height: 1;
+    letter-spacing: 0.05em;
+    padding: 1em;
+    -webkit-tap-highlight-color: transparent;
+    transition: .3s ease-out;
+    width:100%;
 }
-.btn-blue{
-    background-color:#ccc;
+.btn-pink{
+    background-color:$pink;
+    color:$white;
+}
+.btn-sakura{
+    background-color:$sakura;
+    color:$white;
+}
+.btn-white{
+    background-color:$white;
+    color:$pink;
+}
+
+.logo{
+    border-radius: 50%;
+    height:7em;
+    margin:2em;
+    width:7em;
+}
+.card{
+    border-radius: 0.2em;
+    margin:1em 0;
+    padding:1em 3em;
+}
+.card-white{
+    background-color: $white;
+    color:$pink;
+}
+li{
+    margin:1em 0;
+}
+.shadow{
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+}
+#content_original_text{
+    background-color: $white;
+    font-size: 1em;
+    height:10em;
+    margin:2em 0;
+    padding: 1em;
+    width:100%;
+}
+
+.ripple{
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple .rp-effect {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.35;
+    transform: scale(0);
+    background: #FFF;
+    animation: ripple 700ms;
+    pointer-events: none; 
+}
+
+@-webkit-keyframes ripple {
+    to {
+        opacity: 0;
+        transform: scale(2.0);
+    }
+}
+
+@keyframes ripple {
+    to {
+        opacity: 0;
+        transform: scale(2.0);
+    }
 }

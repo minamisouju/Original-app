@@ -14,7 +14,6 @@ class ContentsController < ApplicationController
     #ツイート
     def tweet
         random_id = Content.all.map(&:id).sample
-        puts random_id
         twitter = TwitterApi.new
         twitter.tweet(random_id)
         redirect_to success_path
@@ -36,6 +35,7 @@ class ContentsController < ApplicationController
     end
 
     def success
+        @content = Content.new
     end
 
     private

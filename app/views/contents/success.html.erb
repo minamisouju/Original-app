@@ -1,4 +1,13 @@
-<h1>オマエ　トモダチ</h1>
-<p><%= link_to "ツイッター　ミル", "https://twitter.com/genshijin_bot" %></p>
-<p><%= link_to "モウイッカイ",new_content_path %></p>
-<p><%= link_to "イエ　カエル",root_path %></p>
+<ul>
+    <li><%=link_to "ツイッター　ミル", "https://twitter.com/genshijin_bot", class: "btn btn-white shadow" %></li>
+    <li>
+        <% if request.referrer.include?('new') %>
+            <%= link_to "モウイッカイ",new_content_path, class: "btn btn-pink shadow" %>
+        <% else %>
+            <%= form_for @content, url: tweet_path do |f| %>
+                <%= f.submit "モウイッカイ", class: "btn btn-pink shadow" %>
+            <% end %>
+        <% end %>
+    </li>
+    <li><%=link_to "イエ　カエル",root_path, class: "btn btn-sakura shadow" %></li>
+</ul>
