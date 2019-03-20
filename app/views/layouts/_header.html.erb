@@ -1,0 +1,12 @@
+<header class="shadow">
+    <%= link_to root_path, class: "header-left" do %>
+        <%= image_tag(asset_pack_path("img/header-icon.png"), alt: 'ロゴ', class: 'header-logo') %>
+        <h1>ゲンシジン　ボット</h1>
+    <% end %>
+    <ul class="header-right">
+        <li class="header-item"><%=link_to "", root_path, class: "icon-home" %></li>
+        <li class="header-item"><%=link_to "", new_content_path, class: "icon-new" %></li>
+        <li class="header-item"><%=link_to "", contents_path , class: "icon-index"%></li>
+        <li class="header-item"><%=link_to "", "https://twitter.com/genshijin_bot", class: "icon-twitter" %></li>
+    </ul>
+</header>

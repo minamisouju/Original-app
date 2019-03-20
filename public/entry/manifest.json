@@ -1,7 +1,18 @@
 {
-  "application.css": "/entry/application-4d9b5c05f15a790b0e5ecf927f7e7e80.css",
-  "application.css.map": "/entry/application-4d9b5c05f15a790b0e5ecf927f7e7e80.css.map",
-  "application.js": "/entry/application-de7c08cb42a26649a7da.js",
-  "application.js.map": "/entry/application-de7c08cb42a26649a7da.js.map",
-  "img/icon.png": "/entry/img/icon-3c5de69d31cc23b168439f272fe74c38.png"
+  "application.css": "/entry/application-7d97b5a3bb8532017dc4e1875c1b0b68.css",
+  "application.css.map": "/entry/application-7d97b5a3bb8532017dc4e1875c1b0b68.css.map",
+  "application.js": "/entry/application-c9d9cc67951501495d62.js",
+  "application.js.map": "/entry/application-c9d9cc67951501495d62.js.map",
+  "img/header-icon.png": "/entry/img/header-icon-d7fc8a165a6e72ca127ac70d2066e1b5.png",
+  "img/icon.png": "/entry/img/icon-3c5de69d31cc23b168439f272fe74c38.png",
+  "stylesheets/font_awesome/webfonts/fa-brands-400.eot": "/entry/stylesheets/font_awesome/webfonts/fa-brands-400-d9d17590c975aad1be0ddab673f9c769.eot",
+  "stylesheets/font_awesome/webfonts/fa-brands-400.svg": "/entry/stylesheets/font_awesome/webfonts/fa-brands-400-80533988ff5fecd5be26557d08ce8237.svg",
+  "stylesheets/font_awesome/webfonts/fa-brands-400.ttf": "/entry/stylesheets/font_awesome/webfonts/fa-brands-400-c39278f7abfc798a241551194f55e29f.ttf",
+  "stylesheets/font_awesome/webfonts/fa-brands-400.woff": "/entry/stylesheets/font_awesome/webfonts/fa-brands-400-b90365bccdabd68c6c03902b4b141f09.woff",
+  "stylesheets/font_awesome/webfonts/fa-brands-400.woff2": "/entry/stylesheets/font_awesome/webfonts/fa-brands-400-4b115e1153a9ea339d6a0bb284cc8ed3.woff2",
+  "stylesheets/font_awesome/webfonts/fa-solid-900.eot": "/entry/stylesheets/font_awesome/webfonts/fa-solid-900-b5596f4d339f99e3d69bc41be78db962.eot",
+  "stylesheets/font_awesome/webfonts/fa-solid-900.svg": "/entry/stylesheets/font_awesome/webfonts/fa-solid-900-82905d8d1c06969df11c8c378e9bdd4c.svg",
+  "stylesheets/font_awesome/webfonts/fa-solid-900.ttf": "/entry/stylesheets/font_awesome/webfonts/fa-solid-900-b70cea0339374107969eb53e5b1f603f.ttf",
+  "stylesheets/font_awesome/webfonts/fa-solid-900.woff": "/entry/stylesheets/font_awesome/webfonts/fa-solid-900-61969d433bf265b9717a6c357a1e04e4.woff",
+  "stylesheets/font_awesome/webfonts/fa-solid-900.woff2": "/entry/stylesheets/font_awesome/webfonts/fa-solid-900-462806316fea535a6a57651bc2b000b0.woff2"
 }

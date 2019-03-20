@@ -1,4 +1,7 @@
+<%= link_to root_path do %>
+    <%= image_tag(asset_pack_path("img/icon.png"), alt: 'ロゴ', class: 'logo shadow ripple') %>
+<% end %>
 <%= form_for(@content) do |f| %>
     <%= f.text_area :original_text, placeholder: "オマエ　ココ　カク", class:"shadow" %>
-    <%= f.submit "クリック　ゲンシジン　ナル", class: "btn btn-pink shadow" %>
+    <%= f.submit "クリック　ゲンシジン　ナル", class: "btn btn-sakura ripple" %>
 <% end %>

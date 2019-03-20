@@ -16,6 +16,7 @@ class ContentsController < ApplicationController
         random_id = Content.all.map(&:id).sample
         twitter = TwitterApi.new
         twitter.tweet(random_id)
+        flash[:success] = "オマエ トモダチ"
         redirect_to success_path
     end
 

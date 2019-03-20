@@ -3,10 +3,10 @@
 <% end %>
 <ul>
     <li><%=link_to "ゲンシジン　ナル", new_content_path, class: "btn btn-white shadow ripple" %></li>
-    <li><%=link_to "トモダチ　ミル", contents_path, class: "btn btn-sakura shadow ripple" %></li>
+    <li><%=link_to "トモダチ　ミル", contents_path, class: "btn btn-white shadow ripple" %></li>
     <li>
         <%= form_for @content, url: tweet_path do |f| %>
-            <%= f.submit "ツイート　スル", class: "btn btn-pink shadow ripple tweet" %>
+            <%= f.submit "ツイート　スル", class: "btn btn-white shadow ripple tweet" %>
         <% end %>
     </li>
 </ul>
