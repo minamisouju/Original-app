@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700&subset=japanese');
-$fa-font-path: "./font_awesome/webfonts";
-@import "./font_awesome/scss/fontawesome.scss";
-@import "./font_awesome/scss/brands.scss";
-@import "./font_awesome/scss/solid.scss";
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '~@fortawesome/fontawesome-free/scss/brands.scss';
+@import '~@fortawesome/fontawesome-free/scss/solid.scss';
 
 //common
 $pink:#ef6d6e;
