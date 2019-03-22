@@ -1,8 +1,12 @@
-<h1>ゲンシジン　ボット</h1>
+<%= link_to root_path do %>
+    <%= image_tag(asset_pack_path("img/icon.png"), alt: 'ロゴ', class: 'logo shadow ripple') %>
+<% end %>
 <ul>
-    <li><%=link_to "オマエ　ゲンシジン　ナル", new_content_path %></li>
-    <li><%=link_to "オマエ　トモダチ　ミル", contents_path %></li>
-    <%= form_for @content, url: tweet_path do |f| %>
-        <%= f.submit "オマエ　ツイート　スル", class: "btn btn-blue" %>
-    <% end %>
+    <li><%=link_to "ゲンシジン　ナル", new_content_path, class: "btn btn-white shadow ripple" %></li>
+    <li><%=link_to "トモダチ　ミル", contents_path, class: "btn btn-white shadow ripple" %></li>
+    <li>
+        <%= form_for @content, url: tweet_path do |f| %>
+            <%= f.submit "ツイート　スル", class: "btn btn-white shadow ripple tweet" %>
+        <% end %>
+    </li>
 </ul>

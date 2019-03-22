@@ -10,11 +10,17 @@
   </head>
 
   <body>
+    <%= render('layouts/header') %>
     <div class="main">
-      <% flash.each do |message_type, message| %>
-        <%= content_tag(:div, message) %>
-      <% end %>
-      <%= yield %>
+      <div class="container">
+        <% flash.each do |message_type, message| %>
+          <%= content_tag(:div, message, class: "flash flash-#{message_type} shadow") %>
+        <% end %>
+        <%= yield %>
+      </div>
     </div>
   </body>
+  <script>
+    new Main();
+  </script>
 </html>

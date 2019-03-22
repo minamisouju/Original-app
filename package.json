@@ -2,6 +2,7 @@
   "name": "app",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.8.0",
     "@rails/webpacker": "3.5",
     "jquery": "^3.3.1",
     "jquery-ujs": "^1.2.2",

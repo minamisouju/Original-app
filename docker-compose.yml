@@ -19,7 +19,7 @@ services:
     tty: true
     links:
       - db
-      - webpack
+      #- webpack
   webpack:
     build: .
     command: bash -c "rm -rf ./public/entry; ./bin/webpack-dev-server"

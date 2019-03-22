@@ -1,6 +1,9 @@
-<h1>トモダチ</h1>
-<div class="content-list">
-    <% @contents.each do |content| %>
-    <p><%= "#{content.original_text} |  #{content.converted_text}" %></p>
-    <% end %>
-</div>
+<%= link_to root_path do %>
+    <%= image_tag(asset_pack_path("img/icon.png"), alt: 'ロゴ', class: 'logo shadow') %>
+<% end %>
+<% @contents.each do |content| %>
+    <div class="card card-white shadow">
+        <span class="original"><%= content.original_text %></span>
+        <span class="converted hide"><%= content.converted_text %></span>
+    </div>
+<% end %>
