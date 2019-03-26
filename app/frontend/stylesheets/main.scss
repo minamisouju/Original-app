@@ -4,20 +4,41 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 @import '~@fortawesome/fontawesome-free/scss/brands.scss';
 @import '~@fortawesome/fontawesome-free/scss/solid.scss';
 
-//common
+//color
 $pink:#ef6d6e;
 $sakura:#FFB2AE;
 $ume:#fcecea;
 $white:#fff;
 $grey:#928484;
 
+html{
+    font-size: 62.5%;
+}
+
 body{
     background-color: $ume;
     color:#fff;
     font-family: 'Noto Sans JP', 'ヒラギノ角ゴシック', 'メイリオ' ,sans-serif;
-    font-size: 1em;
-    height:100vh　- 4em;
+    font-size: 16px;
+    font-size: 1.6rem;
+    height:100vh;
+    line-height: 1.2em;
+    min-height:32em;
     width:100vw;
+}
+
+//responsive
+$medium: 56.25em;
+$small: 37.5em;
+@mixin tablet {
+    @media (min-Width: $small) and (max-width: $medium) {
+      @content;
+    }
+}
+@mixin sp {
+    @media (max-width: $small) {
+      @content;
+    }
 }
 
 .btn{
@@ -32,21 +53,21 @@ body{
     -webkit-tap-highlight-color: transparent;
     transition: .3s ease-out;
     width:100%;
-}
-.btn-pink{
-    background-color:$pink;
-    color:$white;
-}
-.btn-sakura{
-    background-color:$sakura;
-    color:$white;
-}
-.btn-white{
-    background-color:$white;
-    color:$pink;
-    &:hover{
-        background-color: $pink;
+    &.btn-pink{
+        background-color:$pink;
         color:$white;
+    }
+    &.btn-sakura{
+        background-color:$sakura;
+        color:$white;
+    }
+    &.btn-white{
+        background-color:$white;
+        color:$pink;
+        &:hover{
+            background-color: $pink;
+            color:$white;
+        }
     }
 }
 
@@ -57,60 +78,68 @@ body{
 .ripple{
     position: relative;
     overflow: hidden;
-}
-
-.ripple .rp-effect {
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0.35;
-    transform: scale(0);
-    background: #FFF;
-    animation: ripple 700ms;
-    pointer-events: none; 
-}
-
-@-webkit-keyframes ripple {
-    to {
-        opacity: 0;
-        transform: scale(2.0);
+    &.rp-effect {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.35;
+        transform: scale(0);
+        background: #FFF;
+        animation: ripple 700ms;
+        pointer-events: none; 
     }
-}
-
-@keyframes ripple {
-    to {
-        opacity: 0;
-        transform: scale(2.0);
+    @-webkit-keyframes ripple {
+        to {
+            opacity: 0;
+            transform: scale(2.0);
+        }
+    }
+    @keyframes ripple {
+        to {
+            opacity: 0;
+            transform: scale(2.0);
+        }
     }
 }
 
 //main
 .main{
+    align-items: center;
+    display: flex;
     height:100%;
-    margin:0 30%;
+    justify-content: center;
     text-align: center;
-    width:40%;
+    width:100%;
     .container{
-        padding:10% 0;
-        .logo{
-            border-radius: 50%;
-            height:7em;
-            margin:2em;
-            width:7em;
+        width:50%;
+        @include tablet{
+            width:60%;
+        }
+        @include sp{
+            width:80%;
+        }
+        .logo-box{
+            display: inline-block;
+            padding-bottom:5vh;
+            .logo{
+                border-radius: 50%;
+                height:7em;
+                width:7em;
+            }
         }
         .card{
             border-radius: 0.2em;
             margin:1em 0;
             padding:1em 3em;
-        }
-        .card-white{
-            background-color: $white;
-            color:$pink;
-            &:hover{
-                background-color: $sakura;
-                color:$white;
-            }
-            .hide{
-                display:none;
+            &.card-white{
+                background-color: $white;
+                color:$pink;
+                &:hover{
+                    background-color: $sakura;
+                    color:$white;
+                }
+                .hide{
+                    display:none;
+                }
             }
         }
         li{
@@ -120,36 +149,42 @@ body{
             background-color: $white;
             font-size: 1em;
             height:10em;
-            margin:2em 0;
+            margin-bottom: 2em;
             padding: 1em;
             width:100%;
+            @include sp{
+                height:20vh;
+            }
         }
         .flash{
             background-color: $sakura;
             border-radius: 0.2em;
             color:$white;
-            margin-bottom:3em;
+            margin-bottom:5vh;
             text-align: left;
             padding:2em;
             position: relative;
             width:100%;
-        }
-        .flash-success{
-            @extend %fa-icon;
-            @extend .fas;
-            &:after{
-                content:fa-content($fa-var-check);
-                right:2em;
-                position: absolute;
+            @include sp{
+                padding:1em;
             }
-        }
-        .flash-danger{
-            @extend %fa-icon;
-            @extend .fas;
-            &:after{
-                content:fa-content($fa-var-times);
-                right:2em;
-                position: absolute;
+            &.flash-success{
+                @extend %fa-icon;
+                @extend .fas;
+                &:after{
+                    content:fa-content($fa-var-check);
+                    right:2em;
+                    position: absolute;
+                }
+            }
+            &.flash-danger{
+                @extend %fa-icon;
+                @extend .fas;
+                &:after{
+                    content:fa-content($fa-var-times);
+                    right:2em;
+                    position: absolute;
+                }
             }
         }
     }
@@ -161,10 +196,24 @@ header{
     display:flex;
     height:4em;
     justify-content: space-between;
+    left:0;
+    margin:0;
+    position: fixed;
+    top:0;
+    width:100%;
+    z-index: 99;
+    @include sp{
+        bottom: 0;
+        justify-content: center;
+        top: auto;
+    }
     .header-left{
         align-items: center;
         color: $white;
         display: flex;
+        @include sp{
+            display: none;
+        }
         .header-logo{
             border-radius: 50%;
             height:4em;
@@ -179,35 +228,39 @@ header{
         .header-item{
             font-size: 1.2em;
             margin-right: 2em;
+            &:last-child{
+                @include sp{
+                    margin-right:0;
+                }
+            }
             a{
                 color:$white;
                 &:hover{
                     color:$sakura;
                 }
-            }
-        }
-        .icon-home{
-            &:before {
-               content: fa-content($fa-var-home);
-            }
-        }
-        .icon-new{
-            &:before{
-                content: fa-content($fa-var-pen)
-            }
-        }
-        .icon-index{
-            &:before{
-                content: fa-content($fa-var-comments)
-            }
-        }
-        .icon-twitter{
-            @extend %fa-icon;
-            @extend .fab;
-            &:before{
-                content: fa-content($fa-var-twitter)
+                &.icon-home{
+                    &:before {
+                       content: fa-content($fa-var-home);
+                    }
+                }
+                &.icon-new{
+                    &:before{
+                        content: fa-content($fa-var-pen)
+                    }
+                }
+                &.icon-index{
+                    &:before{
+                        content: fa-content($fa-var-comments)
+                    }
+                }
+                &.icon-twitter{
+                    @extend %fa-icon;
+                    @extend .fab;
+                    &:before{
+                        content: fa-content($fa-var-twitter)
+                    }
+                }
             }
         }
     }
-    
 }
