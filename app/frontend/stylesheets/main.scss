@@ -69,6 +69,10 @@ $small: 37.5em;
             background-color: $pink;
             color:$white;
         }
+        &.sp-touch{
+            background-color: $pink;
+            color:$white;
+        }
     }
 }
 
@@ -106,10 +110,16 @@ $small: 37.5em;
 .main{
     align-items: center;
     display: flex;
-    height:100%;
+    height:calc(100% - 4em);
     justify-content: center;
+    position:fixed;
     text-align: center;
+    top:4em;
     width:100%;
+    @include sp{
+        bottom:4em;
+        top:0;
+    }
     .container{
         width:50%;
         @include tablet{
@@ -206,7 +216,7 @@ header{
     @include sp{
         bottom: 0;
         justify-content: center;
-        top: auto;
+        top:calc(100% - 4em);
     }
     .header-left{
         align-items: center;

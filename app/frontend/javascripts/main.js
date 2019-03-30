@@ -43,15 +43,23 @@ module.exports = function() {
         }
     });
 
-    $('.card').on('mouseover mouseout', function(e){
+    $('.card').on('mouseover mouseout touchstart touchend', function(e){
         const original = $(this).children('.original');
         const converted = $(this).children('.converted');
-        if(e.type == "mouseover"){
+        if(e.type == "mouseover" || e.type == "touchstart"){
             original.addClass('hide');
             converted.removeClass('hide');
         }else{
             original.removeClass('hide');
             converted.addClass('hide');
+        }
+    })
+
+    $('.btn-white').on('touchstart touchend', function(e){
+        if(e.type == 'touchstart'){
+            $(this).addClass('sp-touch');
+        }else{
+            $(this).removeClass('sp-touch');
         }
     })
 };
