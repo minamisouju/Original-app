@@ -1,0 +1,6 @@
+genshi:
+  views:
+    pagination:
+      first: "&laquo; ハジメ"
+      last: "オワリ &raquo;"
+      truncate: "&hellip;"
