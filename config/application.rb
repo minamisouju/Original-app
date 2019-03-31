@@ -40,7 +40,7 @@ module App
         request_specs: false
     end
 
-    config.i18n.default_locale = :genshi
+    config.i18n.default_locale = :ja
     config.eager_load_paths << Rails.root.join("lib")
   end
 end
