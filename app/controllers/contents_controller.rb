@@ -25,7 +25,7 @@ class ContentsController < ApplicationController
     end
     
     def index
-      @contents = Content.all
+      @contents = Content.page(params[:page]).per(5)
     end
 
     def destroy

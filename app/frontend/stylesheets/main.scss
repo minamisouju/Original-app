@@ -140,6 +140,8 @@ $small: 37.5em;
         .card{
             border-radius: 0.2em;
             margin:1em 0;
+            max-height:5em;
+            overflow: scroll;
             padding:1em 3em;
             &.card-white{
                 background-color: $white;
@@ -195,6 +197,17 @@ $small: 37.5em;
                     content:fa-content($fa-var-times);
                     right:2em;
                     position: absolute;
+                }
+            }
+        }
+        .pagination{
+            span{
+                margin:0.5em;
+                &.current{
+                    color:$sakura;
+                }
+                a{
+                    color:$pink;
                 }
             }
         }
