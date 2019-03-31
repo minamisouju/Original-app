@@ -1,4 +1,4 @@
-genshi:
+ja:
   views:
     pagination:
       first: "&laquo; ハジメ"
