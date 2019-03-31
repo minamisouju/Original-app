@@ -33,5 +33,6 @@ yarn-debug.log*
 
 /.env
 /public/entry
+/public/entry-test
 *.DS_Store
 /.npm/_logs
