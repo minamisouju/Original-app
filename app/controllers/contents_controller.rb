@@ -1,4 +1,5 @@
 class ContentsController < ApplicationController
+    protect_from_forgery except: [:auto_tweet]
     #新規作成
     def create
         @content = Content.new(content_params)
@@ -18,6 +19,14 @@ class ContentsController < ApplicationController
         twitter.tweet(random_id)
         flash[:success] = "オマエ トモダチ"
         redirect_to success_path
+    end
+
+    #定期ツイート
+    def auto_tweet
+        random_id = Content.all.map(&:id).sample
+        twitter = TwitterApi.new
+        twitter.tweet(random_id)
+        render json: :ok
     end
 
     def new
