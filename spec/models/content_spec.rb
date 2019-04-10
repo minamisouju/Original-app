@@ -20,7 +20,7 @@ RSpec.describe Content, type: :model do
       it 'reject nil original' do
         @content.original_text = nil
         is_expected.to eq(false)
-        expect(@content.errors[:original_text]).to include("can't be blank")
+        expect(@content.errors[:original_text].to_s).to include("blank")
       end
       #before_validationで変更されるため、valid
       it 'valid nil converted' do
@@ -33,7 +33,7 @@ RSpec.describe Content, type: :model do
       it 'reject blank original' do
         @content.original_text = ""
         is_expected.to eq(false)
-        expect(@content.errors[:original_text]).to include("can't be blank")
+        expect(@content.errors[:original_text].to_s).to include("blank")
       end
       it 'valid blank converted' do
         @content.converted_text = ""
@@ -44,7 +44,7 @@ RSpec.describe Content, type: :model do
       it 'reject too long original' do
         @content.original_text = "a" * 141
         is_expected.to eq(false)
-        expect(@content.errors[:original_text]).to include("is too long (maximum is 140 characters)")
+        expect(@content.errors[:original_text].to_s).to include("too_long")
       end
       it 'valid too long converted' do
         @content.converted_text = "a" * 141
