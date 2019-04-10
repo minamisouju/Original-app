@@ -26,6 +26,7 @@ class ContentsController < ApplicationController
         random_id = Content.all.map(&:id).sample
         twitter = TwitterApi.new
         twitter.tweet(random_id)
+        render json: :ok
     end
 
     def new
